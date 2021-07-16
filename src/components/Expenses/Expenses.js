@@ -1,3 +1,4 @@
+import moment from "moment";
 import { useState } from "react";
 import Card from "../UI/Card";
 import ExpensesFilter from "./ExpensesFilter";
@@ -14,7 +15,7 @@ const Expenses = (props) => {
   };
 
   const filteredExpensesByYear = props.items.filter(
-    (expense) => expense.date.getFullYear() === parseInt(filteredYear)
+    (expense) => moment(expense.date).year() === parseInt(filteredYear)
   );
 
   return (

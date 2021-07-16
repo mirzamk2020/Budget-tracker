@@ -1,3 +1,4 @@
+import moment from "moment";
 import { useState } from "react";
 import "./ExpenseForm.css";
 
@@ -16,6 +17,7 @@ const ExpenseForm = (props) => {
 
   const dateChangeHandler = (event) => {
     setEnteredDate(event.target.value);
+    console.log(event);
   };
 
   const submitHandler = (event) => {
@@ -24,8 +26,12 @@ const ExpenseForm = (props) => {
     const expenseData = {
       title: enteredTitle,
       amount: +enteredAmount,
-      date: new Date(enteredDate),
+      date: moment(enteredDate),
     };
+
+    console.log();
+
+    console.log();
 
     props.onSaveExpenseData(expenseData);
     setEnteredTitle("");
